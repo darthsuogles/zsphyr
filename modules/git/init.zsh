@@ -7,6 +7,7 @@
 
 # Return if requirements are not found.
 if (( ! $+commands[git] )); then
+  >&2 echo "Failed to load git requirements, we won't be able to show git status"
   return 1
 fi
 

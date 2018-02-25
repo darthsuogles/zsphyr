@@ -57,13 +57,13 @@ function prompt_sorin_async_callback {
   esac
 }
 
-function prompt_sorin_async_git {
+function {
   cd -q "$1"
   if (( $+functions[git-info] )); then
     git-info
     print ${git_info[status]}
   fi
-}
+} prompt_sorin_async_git
 
 function prompt_sorin_async_tasks {
   # Initialize async worker. This needs to be done here and not in
