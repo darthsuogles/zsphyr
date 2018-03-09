@@ -52,6 +52,8 @@ function prompt_phi_precmd {
     # Get Git repository information.
     if (( $+functions[git-info] )); then
         git-info
+    else
+        >&2 print "ERROR: cannot use <git-info> to show status"
     fi
 }
 
