@@ -11,41 +11,26 @@ Installation
 Prezto will work with any recent release of Zsh, but the minimum required
 version is 4.3.11.
 
-  1. Launch Zsh:
-
-     ```console
-     zsh
-     ```
-
-  2. Clone the repository:
-
-     ```console
-     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-     ```
-
-  3. Create a new Zsh configuration by copying the Zsh configuration files
-     provided:
+  1. Bootstrap the environment via:
 
      ```sh
-     setopt EXTENDED_GLOB
-     for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-     done
+     ./bootstrap.zsh
      ```
 
-     Note: If you already have any of the given config files, ln will error. In
-     simple cases you can add `source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"` to
-     the bottom of your `.zshrc` to load prezto but keep your config intact. For
-     more complicated setups, it is recommended that you back up your original
-     configs and replace them with the provided prezto runcoms.
+     The script will provide further instruction on proceeding.
 
-  4. Set Zsh as your default shell:
+  2. On a Linux box that we are supposed to SSH into,
+     make sure this line is in *tmux*.
 
-     ```console
-     chsh -s /bin/zsh
+     ```
+     set-option -g default-shell <installation_path_to_your_zsh>
      ```
 
-  5. Open a new Zsh terminal window or tab.
+  3. On a macOS machine, change the default shell to *zsh*:
+
+     ```sh
+     sudo chsh -s <installation_path_to_your_zsh>
+     ```
 
 ### Troubleshooting
 
