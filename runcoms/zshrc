@@ -7,11 +7,25 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Uncomment to add more custom options
-test -e "${HOME}/.zshrc.valkyrie" && source "${HOME}/.zshrc.valkyrie"
+# Customize to your needs...
 
-# Uncomment to add iTerm2 integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Add our customization
+if [[ -s ~/.zshrc.valkyrie ]]; then
+    source ~/.zshrc.valkyrie
+fi
+
+# Please the loaded modules in `zpreztorc`
+# zstyle ':prezto:load' pmodule \
+#   'git' \
+#   'environment' \
+#   'terminal' \
+#   'editor' \
+#   'history' \
+#   'directory' \
+#   'spectrum' \
+#   'utility' \
+#   'completion' \
+#   'prompt'
