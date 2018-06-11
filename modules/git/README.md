@@ -82,6 +82,8 @@ zstyle ':prezto:module:git:alias' skip 'yes'
   - `gcR` removes the *HEAD* commit.
   - `gcs` displays various types of objects.
   - `gcl` lists lost commits.
+  - `gcy` displays commits yet to be applied to upstream in the short format.
+  - `gcY` displays commits yet to be applied to upstream.
 
 ### Conflict
 
@@ -231,7 +233,8 @@ zstyle ':prezto:module:git:alias' skip 'yes'
 ### Push
 
   - `gp` updates remote refs along with associated objects.
-  - `gpf` forcefully updates remote refs along with associated objects.
+  - `gpf` forcefully updates remote refs along with associated objects using the safer `--force-with-lease` option.
+  - `gpF` forcefully updates remote refs along with associated objects using the riskier `--force` option.
   - `gpa` updates remote branches along with associated objects.
   - `gpA` updates remote branches and tags along with associated objects.
   - `gpt` updates remote tags along with associated objects.
