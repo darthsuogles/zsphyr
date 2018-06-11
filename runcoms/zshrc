@@ -31,4 +31,3 @@ fi
 #   'prompt'
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -F /usr/local/bin/aliyun aliyun
