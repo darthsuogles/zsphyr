@@ -57,6 +57,13 @@ if [[ "yes" == "${WITH_NEW_SSH_AGENT:-no}" ]]; then
     fi
 fi
 
+if [[ -d "$HOME/.zshrc.d/" ]]; then
+    for fname in $(find "$HOME/.zshrc.d/" -type f); do
+        echo "[ZSH] Importing macros: ${fname}"
+        source "${fname}"
+    done
+fi
+
 cat <<_VALKYRIE_EOF_
 [ZSH] Valkyrie initialized: change ~/.zshrc.valkyrie and send a DIFF
 _VALKYRIE_EOF_
