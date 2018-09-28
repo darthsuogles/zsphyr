@@ -64,6 +64,8 @@ if [[ -d "$HOME/.zshrc.d/" ]]; then
     done
 fi
 
+complete -o nospace -F /usr/local/bin/aliyun aliyun
+
 cat <<_VALKYRIE_EOF_
 [ZSH] Valkyrie initialized: change ~/.zshrc.valkyrie and send a DIFF
 _VALKYRIE_EOF_
