@@ -7,27 +7,10 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
-
-# Add our customization
-if [[ -s ~/.zshrc.valkyrie ]]; then
-    source ~/.zshrc.valkyrie
+if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.valkyrie" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshrc.valkyrie"
 fi
-
-# Please the loaded modules in `zpreztorc`
-# zstyle ':prezto:load' pmodule \
-#   'git' \
-#   'environment' \
-#   'terminal' \
-#   'editor' \
-#   'history' \
-#   'directory' \
-#   'spectrum' \
-#   'utility' \
-#   'completion' \
-#   'prompt'
-
-autoload -U +X bashcompinit && bashcompinit

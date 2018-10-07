@@ -34,6 +34,36 @@ fi
 # HELPDIR=/usr/local/share/zsh/help
 
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    printf "[SSH] Initialising new SSH agent..."
+    ssh-agent 2>/dev/null | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    find ~/.ssh -type f -exec grep -l PRIVATE {} \; | xargs ssh-add &>/dev/null
+}
+
+if [[ "yes" == "${WITH_NEW_SSH_AGENT:-no}" ]]; then
+    # Source SSH settings, if applicable
+    if [[ -f "${SSH_ENV}" ]]; then
+        . "${SSH_ENV}" > /dev/null
+        #ps ${SSH_AGENT_PID} doesn't work under cywgin
+        ps -ef | grep "${SSH_AGENT_PID}" | grep ssh-agent$ > /dev/null || {
+            start_agent;
+        }
+    else
+        start_agent;
+    fi
+fi
+
+if [[ -d "$HOME/.zshrc.d/" ]]; then
+    for fname in $(find "$HOME/.zshrc.d/" -type f); do
+        echo "[ZSH] Importing macros: ${fname}"
+        source "${fname}"
+    done
+fi
 
 cat <<_VALKYRIE_EOF_
 [ZSH] Valkyrie initialized: change ~/.zshrc.valkyrie and send a DIFF
