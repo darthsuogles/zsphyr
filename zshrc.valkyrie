@@ -15,6 +15,8 @@ if [[ -d /Library/TeX/Root/bin/x86_64-darwin ]]; then
     export PATH=$PATH:/Library/TeX/Root/bin/x86_64-darwin
 fi
 
+PATH="/usr/local/bin:${PATH}"
+
 #
 # Prompt
 #
@@ -66,7 +68,13 @@ if [[ -d "$HOME/.zshrc.d/" ]]; then
 fi
 
 # Rust
-[[ -f ~/.cargo/env ]] && source ~/.cargo/env
+[[ -e ~/.cargo/env ]] && source ~/.cargo/env
+
+# zplug
+[[ -e ~/.zshrc.zplug ]] && source ~/.zshrc.zplug
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 cat <<_VALKYRIE_EOF_
 [ZSH] Valkyrie initialized: change ~/.zshrc.valkyrie and send a DIFF

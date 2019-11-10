@@ -1,0 +1,41 @@
+# -*- shell-script -*- 
+source ~/.zplug/init.zsh
+
+# Make sure to use double quotes
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# Also prezto
+zplug "modules/tmux", from:prezto
+
+# zplug "zsh-users/zsh-autosuggestions"
+zplug "modules/autosuggestions", from:prezto
+
+# zplug "zsh-users/zsh-completions"
+zplug "modules/completion", from:prezto
+
+zplug "modules/history", from:prezto
+
+# Use the package as a command
+# And accept glob patterns (e.g., brace, wildcard, ...)
+zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
+
+# # Can manage everything e.g., other person's zshrc
+# zplug "tcnksm/docker-alias", use:zshrc
+# zplug "rawkode/zsh-docker-run"
+
+# Load if "if" tag returns true
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "tysonwolker/iterm-tab-colors", if:"[[ $OSTYPE == *darwin* ]]"
+
+# https://github.com/romkatv/powerlevel10k#zplug
+zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
+
+# # https://cercal.io/en/iterm2-plus-zplug-means-productivity/
+# zplug "desyncr/auto-ls"
+# zplug "momo-lab/zsh-abbrev-alias"
+# zplug "peterhurford/up.zsh"
+# zplug "jimeh/zsh-peco-history"
+ 
+# Load things
+zplug load
