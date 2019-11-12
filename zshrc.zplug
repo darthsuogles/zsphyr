@@ -16,18 +16,6 @@ zplug "modules/completion", from:prezto
 
 zplug "modules/history", from:prezto
 
-# Use the package as a command
-# And accept glob patterns (e.g., brace, wildcard, ...)
-zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
-
-# # Can manage everything e.g., other person's zshrc
-# zplug "tcnksm/docker-alias", use:zshrc
-# zplug "rawkode/zsh-docker-run"
-
-# Load if "if" tag returns true
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "tysonwolker/iterm-tab-colors", if:"[[ $OSTYPE == *darwin* ]]"
-
 # https://github.com/romkatv/powerlevel10k#zplug
 zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 

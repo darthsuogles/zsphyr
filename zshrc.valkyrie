@@ -63,7 +63,7 @@ fi
 # zplug
 [[ -e ~/.zshrc.zplug ]] && {
     log-info "loading zplug"
-    source ~/.zshrc.zplug &>/dev/null
+    source ~/.zshrc.zplug
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
